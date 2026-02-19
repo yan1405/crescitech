@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #0066CC;
+  --color-primary-dark: #003366;
+  --color-primary-light: #E6F2FF;
+
+  --color-neutral-50: #F5F5F5;
+  --color-neutral-900: #1A1A1A;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-100: 100px;
+  --spacing-120: 120px;
+}
+
+/* Base Styles */
+/* Tailwind v4 resets are handled by the import, but we can iterate on base styles here */
+body {
+  @apply bg-white text-neutral-900;
+}
