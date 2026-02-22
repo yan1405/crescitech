@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { X, Download, CheckCircle } from 'lucide-react';
 import { Resource } from '@/lib/resources';
 
-const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwzJVGw5rxL04jwmnr44X3dl_5bDtEkiKuEJlwI6cVVBrDSHUqRCRNBpGVozDNyHitp/exec';
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_WEBHOOK_URL!;
 
 interface Props {
     resource: Resource | null;

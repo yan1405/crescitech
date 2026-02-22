@@ -74,7 +74,7 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
         setIsLoading(true);
         setError("");
 
-        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwzJVGw5rxL04jwmnr44X3dl_5bDtEkiKuEJlwI6cVVBrDSHUqRCRNBpGVozDNyHitp/exec';
+        const WEBHOOK_URL = process.env.NEXT_PUBLIC_WEBHOOK_URL!;
 
         const payload = {
             nome: formData.nome,
@@ -84,8 +84,6 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
             empresa: formData.tipo === 'PJ' ? formData.empresa : ''
         };
 
-        console.log('Enviando dados:', payload);
-
         try {
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
@@ -93,19 +91,15 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(payload),
-                redirect: 'follow' // IMPORTANTE: Seguir redirects
+                redirect: 'follow'
             });
-
-            console.log('Response status:', response.status);
 
             // Google Apps Script pode retornar 302 redirect
             if (response.status === 200 || response.status === 302) {
                 try {
                     const result = await response.json();
-                    console.log('Resposta:', result);
 
                     if (result.status === 'success') {
-                        // Sucesso - mostrar tela de obrigado
                         setIsSuccess(true);
                         setTimeout(() => {
                             onSuccess();
@@ -113,9 +107,8 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
                     } else {
                         throw new Error(result.message || 'Erro desconhecido');
                     }
-                } catch (jsonError) {
-                    // Se não conseguir parsear JSON, considerar sucesso
-                    console.log('Assumindo sucesso (redirect)');
+                } catch {
+                    // Se não conseguir parsear JSON, considerar sucesso (redirect)
                     setIsSuccess(true);
                     setTimeout(() => {
                         onSuccess();
@@ -126,7 +119,7 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
             }
 
         } catch (error) {
-            console.error('Erro ao enviar:', error);
+            console.error('Erro ao enviar formulário:', error);
 
             // Tentar método alternativo com no-cors como fallback
             try {
@@ -139,16 +132,12 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
                     body: JSON.stringify(payload)
                 });
 
-                // Com no-cors, não conseguimos ver resposta
-                // Mas se não deu erro, provavelmente funcionou
-                console.log('Enviado via no-cors (fallback)');
                 setIsSuccess(true);
                 setTimeout(() => {
                     onSuccess();
                 }, 3000);
 
-            } catch (fallbackError) {
-                console.error('Erro no fallback:', fallbackError);
+            } catch {
                 setError('Erro ao enviar formulário. Por favor, tente novamente.');
             }
         } finally {

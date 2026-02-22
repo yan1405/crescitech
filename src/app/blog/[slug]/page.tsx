@@ -7,6 +7,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { StarRating } from '@/components/StarRating';
 import type { Metadata } from 'next';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -21,7 +22,7 @@ export async function generateStaticParams() {
 async function getArticle(slug: string) {
     try {
         const res = await fetch(
-            `https://script.google.com/macros/s/AKfycbwzJVGw5rxL04jwmnr44X3dl_5bDtEkiKuEJlwI6cVVBrDSHUqRCRNBpGVozDNyHitp/exec?mode=read&tab=artigos`,
+            `${process.env.APPS_SCRIPT_URL}?mode=read&tab=artigos`,
             { cache: 'no-store', redirect: 'follow' }
         );
         if (res.ok) {
@@ -112,7 +113,7 @@ export default async function BlogPostPage({ params }: Props) {
               prose-strong:text-neutral-900 prose-strong:font-semibold
               prose-ul:my-6 prose-li:my-2
               prose-img:rounded-xl"
-                        dangerouslySetInnerHTML={{ __html: post.content }}
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
                     />
 
                     <StarRating slug={slug} />

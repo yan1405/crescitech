@@ -7,7 +7,7 @@ import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 export default function ConditionalLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
-    const isAdmin = pathname.startsWith('/admin-crescitech');
+    const isAdmin = pathname.startsWith('/admin-crescitech') || pathname.startsWith('/admin-crescitech/login');
 
     return (
         <>

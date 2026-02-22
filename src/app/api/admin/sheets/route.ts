@@ -3,8 +3,7 @@ export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
 
-const APPS_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwzJVGw5rxL04jwmnr44X3dl_5bDtEkiKuEJlwI6cVVBrDSHUqRCRNBpGVozDNyHitp/exec";
+const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL!;
 
 // ── Tipos ──────────────────────────────────────────────────────────────────
 

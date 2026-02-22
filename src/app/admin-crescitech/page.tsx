@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { LayoutDashboard, PenSquare, BookOpen, BarChart2, Star, LogOut } from 'lucide-react';
+import { LayoutDashboard, PenSquare, BookOpen, BarChart2, Star, LogOut, Home } from 'lucide-react';
 import { AdminDashboard } from '@/components/admin/AdminDashboard';
 import { CreateArticle } from '@/components/admin/CreateArticle';
 import { ManageArticles } from '@/components/admin/ManageArticles';
@@ -19,6 +20,18 @@ const navItems = [
 
 export default function AdminPage() {
     const [activeTab, setActiveTab] = useState('dashboard');
+    const [loggingOut, setLoggingOut] = useState(false);
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        setLoggingOut(true);
+        try {
+            await fetch('/api/admin/auth', { method: 'DELETE' });
+        } catch {
+            // Mesmo se falhar, redireciona para login
+        }
+        router.push('/admin-crescitech/login');
+    };
 
     return (
         <div className="flex min-h-screen">
@@ -46,14 +59,22 @@ export default function AdminPage() {
                     ))}
                 </nav>
 
-                <div className="p-4 border-t border-slate-100">
+                <div className="p-4 border-t border-slate-100 space-y-1">
                     <a
                         href="/"
                         className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors"
                     >
-                        <LogOut className="w-4 h-4" />
+                        <Home className="w-4 h-4" />
                         Voltar ao Site
                     </a>
+                    <button
+                        onClick={handleLogout}
+                        disabled={loggingOut}
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors disabled:opacity-50"
+                    >
+                        <LogOut className="w-4 h-4" />
+                        {loggingOut ? 'Saindo...' : 'Sair'}
+                    </button>
                 </div>
             </aside>
 

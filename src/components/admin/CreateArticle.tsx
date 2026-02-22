@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { Send, Eye, FileText } from 'lucide-react';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 const CATEGORIES = [
     'Transformação Digital', 'Gestão', 'Modelo 6C', 'Automações',
     'Ferramentas', 'IA Hoje', 'Futuro'
 ];
 
-const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwzJVGw5rxL04jwmnr44X3dl_5bDtEkiKuEJlwI6cVVBrDSHUqRCRNBpGVozDNyHitp/exec';
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_WEBHOOK_URL!;
 
 function generateSlug(title: string) {
     return title
@@ -265,7 +266,7 @@ export function CreateArticle() {
                     </p>
                     <div
                         className="prose prose-sm max-w-none text-slate-700"
-                        dangerouslySetInnerHTML={{ __html: form.content || '<p>Conteúdo do artigo aparecerá aqui.</p>' }}
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(form.content || '<p>Conteúdo do artigo aparecerá aqui.</p>') }}
                     />
                 </div>
             )}
