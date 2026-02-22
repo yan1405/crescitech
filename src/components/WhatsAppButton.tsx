@@ -25,7 +25,7 @@ export function WhatsAppButton() {
                 boxShadow: "0 6px 20px 0 rgba(37, 211, 102, 0.5)"
             }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full transition-colors"
+            className="group fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full transition-colors"
             aria-label="Falar no WhatsApp"
         >
             {/* Pulse Animation Layer */}

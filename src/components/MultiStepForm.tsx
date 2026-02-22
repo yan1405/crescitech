@@ -39,9 +39,8 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
         if (currentStep === 1 && !formData.nome) return setError("Por favor, digite seu nome.");
         if (currentStep === 2) {
             if (!formData.telefone) return setError("Por favor, digite seu telefone.");
-            const phoneRegex = /\(\d{2}\)\s\d{5}-\d{4}/;
-            // Simple validation, can be enhanced with a mask library
-            if (formData.telefone.length < 10) return setError("Telefone inválido.");
+            const phoneRegex = /^\(\d{2}\)\s\d{5}-\d{4}$/;
+            if (!phoneRegex.test(formData.telefone)) return setError("Telefone inválido. Use o formato (XX) XXXXX-XXXX.");
         }
         if (currentStep === 3) {
             if (!formData.email) return setError("Por favor, digite seu email.");
@@ -118,9 +117,7 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
                 throw new Error(`HTTP ${response.status}`);
             }
 
-        } catch (error) {
-            console.error('Erro ao enviar formulário:', error);
-
+        } catch {
             // Tentar método alternativo com no-cors como fallback
             try {
                 await fetch(WEBHOOK_URL, {
@@ -132,13 +129,14 @@ export function MultiStepForm({ onSuccess }: { onSuccess: () => void }) {
                     body: JSON.stringify(payload)
                 });
 
+                // no-cors retorna resposta opaca — não é possível confirmar sucesso
                 setIsSuccess(true);
                 setTimeout(() => {
                     onSuccess();
                 }, 3000);
 
             } catch {
-                setError('Erro ao enviar formulário. Por favor, tente novamente.');
+                setError('Erro ao enviar formulário. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
             }
         } finally {
             setIsLoading(false);

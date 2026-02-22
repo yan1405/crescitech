@@ -61,13 +61,14 @@ export function Hero() {
                         className="flex-1 relative w-full max-w-[800px] aspect-video"
                     >
                         {/* Abstract Tech Illustration Placeholder */}
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-white border border-neutral-100">
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/10 to-primary-light border border-neutral-100">
                             <video
                                 className="w-full h-full object-cover rounded-2xl"
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
+                                poster="/assets/logocrescitech.PNG"
                             >
                                 <source src="/hero-video.mp4" type="video/mp4" />
                                 Seu navegador não suporta vídeos.

@@ -25,10 +25,9 @@ export function Footer() {
                     <div>
                         <h4 className="font-semibold text-neutral-900 mb-4">Empresa</h4>
                         <ul className="space-y-2 text-sm text-neutral-600">
-                            <li><Link href="/sobre" className="hover:text-primary transition-colors">Quem Somos</Link></li>
+                            <li><Link href="/#about" className="hover:text-primary transition-colors">Quem Somos</Link></li>
                             <li><Link href="/pilares" className="hover:text-primary transition-colors">Nossos Pilares</Link></li>
                             <li><Link href="/modelo-6c" className="hover:text-primary transition-colors">Modelo 6C</Link></li>
-                            <li><Link href="/carreiras" className="hover:text-primary transition-colors">Carreiras</Link></li>
                         </ul>
                     </div>
 
