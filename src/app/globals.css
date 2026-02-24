@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-primary: #0066CC;
-  --color-primary-dark: #003366;
-  --color-primary-light: #E6F2FF;
+  /* Primary palette — baseada em #0066FF */
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-primary-light: #E6F0FF;
+  --color-primary-50: #E6F0FF;
+  --color-primary-100: #CCE0FF;
+  --color-primary-500: #0066FF;
 
+  /* Neutral overrides */
   --color-neutral-50: #F5F5F5;
   --color-neutral-900: #1A1A1A;
 
