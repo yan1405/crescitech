@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Crescitech",
     images: [
       {
-        url: "/assets/logocrescitech.PNG",
+        url: "/assets/logocrescitech.png",
         width: 1200,
         height: 630,
         alt: "Crescitech - Consultoria em IA",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Crescitech | Consultoria em IA",
     description: "Transformação digital com propósito para PMEs.",
-    images: ["/assets/logocrescitech.PNG"],
+    images: ["/assets/logocrescitech.png"],
   },
   robots: {
     index: true,

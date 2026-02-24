@@ -28,7 +28,7 @@ async function getArticle(slug: string) {
         if (res.ok) {
             const json = await res.json();
             const rows = Array.isArray(json?.rows) ? json.rows : [];
-            const found = rows.find((a: any) => a.slug === slug && a.status === 'published');
+            const found = rows.find((a: Record<string, unknown>) => a.slug === slug && a.status === 'published');
             if (found) return found;
         }
     } catch { }

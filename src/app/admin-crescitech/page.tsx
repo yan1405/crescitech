@@ -39,7 +39,7 @@ export default function AdminPage() {
             {/* Sidebar */}
             <aside className="w-64 bg-white border-r border-slate-100 shadow-sm flex flex-col fixed h-full">
                 <div className="p-6 border-b border-slate-100">
-                    <Image src="/assets/logocrescitech.PNG" alt="Crescitech" width={140} height={40} className="object-contain" />
+                    <Image src="/assets/logocrescitech.png" alt="Crescitech" width={140} height={40} className="object-contain" />
                     <p className="text-xs text-slate-400 mt-2">Painel Administrativo</p>
                 </div>
 

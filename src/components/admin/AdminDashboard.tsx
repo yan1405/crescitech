@@ -66,8 +66,7 @@ export function AdminDashboard() {
     // Dispara fetch sempre que period ou refreshKey mudam
     useEffect(() => {
         doFetch(period, bust);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [period, refreshKey]);
+    }, [period, refreshKey, doFetch, bust]);
 
     const handlePeriodChange = (p: Period) => {
         setBust(false);

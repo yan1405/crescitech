@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <Image
-              src="/assets/logocrescitech.PNG"
+              src="/assets/logocrescitech.png"
               alt="Crescitech"
               width={160}
               height={45}

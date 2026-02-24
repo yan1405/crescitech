@@ -39,12 +39,25 @@ export async function GET() {
         }
 
         // Artigos do Sheets com status published
-        const publishedFromSheets = sheetsArticles
-            .filter((a: any) => {
+        interface SheetsArticle {
+            slug: string;
+            title: string;
+            summary?: string;
+            category?: string;
+            coverImage?: string;
+            createdAt?: string;
+            readingTime?: string;
+            content?: string;
+            tags?: string[];
+            status?: string;
+        }
+
+        const publishedFromSheets = (sheetsArticles as SheetsArticle[])
+            .filter((a) => {
                 const status = statusMap[a.slug] ?? a.status;
                 return status === 'published' && a.slug && a.title;
             })
-            .map((a: any) => ({
+            .map((a) => ({
                 slug: a.slug,
                 title: a.title,
                 summary: a.summary || '',
@@ -60,7 +73,7 @@ export async function GET() {
                 status: 'published' as const,
             }));
 
-        const sheetsSlugs = new Set(publishedFromSheets.map((a: any) => a.slug));
+        const sheetsSlugs = new Set(publishedFromSheets.map((a) => a.slug));
 
         // Artigos do posts.ts respeitando status do Sheets
         const fromCode = blogPosts.filter(p => {

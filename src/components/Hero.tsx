@@ -68,7 +68,7 @@ export function Hero() {
                                 loop
                                 muted
                                 playsInline
-                                poster="/assets/logocrescitech.PNG"
+                                poster="/assets/logocrescitech.png"
                             >
                                 <source src="/hero-video.mp4" type="video/mp4" />
                                 Seu navegador não suporta vídeos.

@@ -4,6 +4,14 @@ import { useState, useEffect, useCallback } from 'react';
 import { blogPosts } from '@/lib/blog/posts';
 import { ExternalLink, Archive, Trash2, RotateCcw, RefreshCw } from 'lucide-react';
 
+interface SheetsRow {
+    slug: string;
+    title: string;
+    category?: string;
+    createdAt?: string;
+    status?: string;
+}
+
 type Status = 'published' | 'archived' | 'deleted';
 type Tab = 'published' | 'archived';
 
@@ -56,9 +64,9 @@ export function ManageArticles() {
             // Carrega artigos do Sheets
             const articlesJson = await articlesRes.json();
             const articlesRows = Array.isArray(articlesJson?.rows) ? articlesJson.rows : [];
-            const loaded: ArticleItem[] = articlesRows
-                .filter((a: any) => a.slug && a.title)
-                .map((a: any) => ({
+            const loaded: ArticleItem[] = (articlesRows as SheetsRow[])
+                .filter((a) => a.slug && a.title)
+                .map((a) => ({
                     slug: a.slug,
                     title: a.title,
                     category: a.category || '',

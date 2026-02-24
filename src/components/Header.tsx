@@ -58,7 +58,7 @@ export function Header() {
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0 relative w-[180px] h-[45px]">
                         <Image
-                            src="/assets/logocrescitech.PNG"
+                            src="/assets/logocrescitech.png"
                             alt="Crescitech"
                             fill
                             className="object-contain object-left"

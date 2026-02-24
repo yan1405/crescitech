@@ -37,8 +37,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         );
 
         if (href) {
+            const { target, rel } = props;
             return (
-                <Link href={href} className={baseStyles} {...(props as any)}>
+                <Link href={href} className={baseStyles} target={target} rel={rel}>
                     {children}
                 </Link>
             );

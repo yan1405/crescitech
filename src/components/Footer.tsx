@@ -11,7 +11,7 @@ export function Footer() {
                     <div className="col-span-1 md:col-span-1">
                         <Link href="/" className="inline-block relative w-[140px] h-[35px] mb-6">
                             <Image
-                                src="/assets/logocrescitech.PNG"
+                                src="/assets/logocrescitech.png"
                                 alt="Crescitech"
                                 fill
                                 className="object-contain object-left grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all"
