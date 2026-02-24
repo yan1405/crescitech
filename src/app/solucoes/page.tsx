@@ -5,7 +5,17 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import { Search, Users, GraduationCap, Wrench, Compass, ShieldCheck } from "lucide-react";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import dynamic from "next/dynamic";
+
+const DotLottiePlayer = dynamic(
+    () => import("@dotlottie/react-player").then(mod => mod.DotLottiePlayer),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="w-full h-full bg-gradient-to-br from-primary/5 to-primary/10 animate-pulse rounded-xl" />
+        ),
+    }
+);
 
 export default function SolutionsPage() {
   const solutions = [

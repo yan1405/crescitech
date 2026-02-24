@@ -14,7 +14,7 @@ interface Props {
 }
 
 // generateStaticParams pré-gera apenas os slugs do posts.ts (build time)
-// Artigos do Sheets são resolvidos em runtime com cache: 'no-store'
+// Artigos do Sheets são cacheados por 5 minutos (revalidate: 300)
 export async function generateStaticParams() {
     return publishedPosts.map(post => ({ slug: post.slug }));
 }
@@ -23,7 +23,7 @@ async function getArticle(slug: string) {
     try {
         const res = await fetch(
             `${process.env.APPS_SCRIPT_URL}?mode=read&tab=artigos`,
-            { cache: 'no-store', redirect: 'follow' }
+            { next: { revalidate: 300 }, redirect: 'follow' }
         );
         if (res.ok) {
             const json = await res.json();
