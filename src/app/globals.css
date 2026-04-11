@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary palette — baseada em #0066FF */
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-primary-light: #E6F0FF;
+  --color-primary-50: #E6F0FF;
+  --color-primary-100: #CCE0FF;
+  --color-primary-500: #0066FF;
+
+  /* Neutral overrides */
+  --color-neutral-50: #F5F5F5;
+  --color-neutral-900: #1A1A1A;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-100: 100px;
+  --spacing-120: 120px;
+}
+
+/* Base Styles */
+/* Tailwind v4 resets are handled by the import, but we can iterate on base styles here */
+body {
+  @apply bg-white text-neutral-900;
+}
+
+/* ── Performance Animations (CSS puro, sem JS) ── */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes whatsapp-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Hero staggered entrance */
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+.animate-fade-in-up-d1 {
+  animation: fade-in-up 0.5s ease-out 0.1s both;
+}
+
+.animate-fade-in-up-d2 {
+  animation: fade-in-up 0.5s ease-out 0.2s both;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.7s ease-out both;
+}
+
+/* WhatsApp button */
+.animate-whatsapp-enter {
+  animation: whatsapp-enter 0.5s ease-out both;
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
