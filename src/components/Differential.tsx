@@ -77,7 +77,7 @@ export function Differential() {
                             </li>
                             <li className="flex items-start gap-3 text-neutral-500">
                                 <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                                <span>Distantes da realidade das PMEs</span>
+                                <span>Distantes da realidade das empresas</span>
                             </li>
                             <li className="flex items-start gap-3 text-neutral-500">
                                 <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />

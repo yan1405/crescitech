@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Crescitech | Consultoria Estratégica em IA para PMEs",
+  title: "Crescitech | Consultoria Estratégica em IA",
   description: "Transforme seu negócio com Inteligência Artificial. Consultoria especializada, treinamento e desenvolvimento de soluções de IA para pequenas e médias empresas.",
-  keywords: ["Consultoria IA", "Inteligência Artificial PME", "Transformação Digital", "Business Intelligence", "Automação", "Crescitech"],
+  keywords: ["Consultoria IA", "Inteligência Artificial", "Transformação Digital", "Business Intelligence", "Automação", "Crescitech"],
   authors: [{ name: "Crescitech" }],
   creator: "Crescitech",
   publisher: "Crescitech",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Crescitech | Consultoria em IA",
-    description: "Transformação digital com propósito para PMEs.",
+    description: "Transformação digital com propósito.",
     images: ["/assets/logocrescitech.PNG"],
   },
   robots: {

@@ -27,7 +27,7 @@ export function Hero() {
                         <p
                             className="text-lg sm:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up-d1"
                         >
-                            Consultoria especializada em IA para PMEs que querem crescer com inteligência, eficiência e propósito.
+                            Consultoria especializada em IA para empresas que querem crescer com inteligência, eficiência e propósito.
                         </p>
 
                         <div

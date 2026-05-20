@@ -54,9 +54,9 @@ export function Header() {
             className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100"
         >
             <Container>
-                <div className="flex items-center justify-between h-20">
+                <div className="flex items-center justify-between h-28">
                     {/* Logo */}
-                    <Link href="/" className="flex-shrink-0 relative w-[180px] h-[45px]">
+                    <Link href="/" className="flex-shrink-0 relative w-[360px] h-[90px]">
                         <Image
                             src="/assets/logocrescitech.PNG"
                             alt="Crescitech"

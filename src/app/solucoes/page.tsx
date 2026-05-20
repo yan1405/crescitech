@@ -66,7 +66,7 @@ export default function SolutionsPage() {
       title: "Desenvolvimento de Ferramentas",
       icon: <Wrench className="w-8 h-8" />,
       description: "Desenvolvemos soluções customizadas para resolver dores específicas do seu negócio. De chatbots inteligentes a dashboards preditivos, criamos o que você precisa.",
-      lottieUrl: "/assets/Dev.lottie",
+      lottieUrl: "/assets/dev.lottie",
       imageAlt: "Desenvolvimento de software e ferramentas tecnológicas",
       features: [
         "Chatbots e assistentes virtuais",
