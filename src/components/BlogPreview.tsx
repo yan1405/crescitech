@@ -6,27 +6,29 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/blog/posts";
+import { useLanguage } from "@/context/LanguageContext";
 
-// Get the 3 most recent posts for preview
 const previewPosts = blogPosts.slice(0, 3);
 
 export function BlogPreview() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-20 lg:py-24 bg-white">
             <Container>
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="max-w-2xl">
                         <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
-                            Insights e Tendências
+                            {t.blogPreview.title}
                         </h2>
                         <p className="text-lg text-neutral-600">
-                            Conteúdo atualizado para manter você à frente no mercado.
+                            {t.blogPreview.subtitle}
                         </p>
                     </div>
                     <Button variant="outline" href="/blog" className="hidden md:inline-flex">
-                        Ver todos os artigos
+                        {t.blogPreview.allArticles}
                     </Button>
                 </div>
 
@@ -40,7 +42,6 @@ export function BlogPreview() {
                             transition={{ delay: index * 0.1 }}
                             className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300"
                         >
-                            {/* Image Placeholder */}
                             <div className="relative h-48 w-full bg-neutral-200 overflow-hidden">
                                 <Image
                                     src={post.coverImage}
@@ -73,7 +74,7 @@ export function BlogPreview() {
                                         <span>{post.publishedAtFormatted}</span>
                                     </div>
                                     <Link href={`/blog/${post.slug}`} className="text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                                        Ler mais <ArrowRight className="w-4 h-4" />
+                                        {t.blogPreview.readMore} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
                             </div>
@@ -83,7 +84,7 @@ export function BlogPreview() {
 
                 <div className="text-center md:hidden">
                     <Button variant="outline" href="/blog">
-                        Ver todos os artigos
+                        {t.blogPreview.allArticles}
                     </Button>
                 </div>
             </Container>
