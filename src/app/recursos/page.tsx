@@ -38,7 +38,15 @@ export default function RecursosPage() {
 
             <Container className="pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {resources.map((resource) => (
+                    {resources.map((resource) => {
+                        const resourcesT = (t as any).resources ?? {};
+                        const r = resourcesT[resource.id];
+                        const title = r?.title ?? resource.title;
+                        const description = r?.description ?? resource.description;
+                        const category = r?.category ?? resource.category;
+                        const highlights = r?.highlights ?? resource.highlights;
+
+                        return (
                         <div
                             key={resource.id}
                             className="bg-white rounded-2xl border border-neutral-200 hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden"
@@ -46,7 +54,7 @@ export default function RecursosPage() {
                             <div className="relative h-52 w-full overflow-hidden bg-neutral-100">
                                 <Image
                                     src={resource.coverImage}
-                                    alt={resource.title}
+                                    alt={title}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
@@ -62,16 +70,16 @@ export default function RecursosPage() {
 
                             <div className="p-6 flex flex-col flex-grow">
                                 <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                                    {resource.category}
+                                    {category}
                                 </p>
                                 <h2 className="text-xl font-bold text-neutral-900 mb-3 leading-snug">
-                                    {resource.title}
+                                    {title}
                                 </h2>
                                 <p className="text-neutral-600 text-sm mb-5">
-                                    {resource.description}
+                                    {description}
                                 </p>
                                 <ul className="space-y-1.5 mb-6">
-                                    {resource.highlights.map((item) => (
+                                    {highlights.map((item: string) => (
                                         <li key={item} className="flex items-start gap-2 text-sm text-neutral-700">
                                             <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                                             {item}
@@ -87,7 +95,8 @@ export default function RecursosPage() {
                                 </button>
                             </div>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </Container>
 

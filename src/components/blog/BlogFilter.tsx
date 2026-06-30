@@ -7,6 +7,7 @@ import { Container } from '@/components/ui/Container';
 import { Calendar, ArrowRight, Search, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { categories as staticCategories } from '@/lib/blog/posts';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Article {
     slug: string;
@@ -28,6 +29,10 @@ interface BlogFilterProps {
 export default function BlogFilter({ articles }: BlogFilterProps) {
     const [search, setSearch] = useState('');
     const [activeCategory, setActiveCategory] = useState('Todos');
+    const { t } = useLanguage();
+    const page = (t as any).blogPage;
+    const blogPostsT = (t as any).blogPosts ?? {};
+    const blogCategoriesT = (t as any).blogCategories ?? {};
 
     const categories = useMemo(() => {
         const fromArticles = articles.map(a => a.category).filter(Boolean);
@@ -38,14 +43,17 @@ export default function BlogFilter({ articles }: BlogFilterProps) {
         return articles.filter(post => {
             const matchesCategory = activeCategory === 'Todos' || post.category === activeCategory;
             const q = search.toLowerCase();
+            const translated = blogPostsT[post.slug];
+            const titleToSearch = (translated?.title ?? post.title).toLowerCase();
+            const summaryToSearch = (translated?.summary ?? post.summary).toLowerCase();
             const matchesSearch =
                 q === '' ||
-                post.title.toLowerCase().includes(q) ||
-                post.summary.toLowerCase().includes(q) ||
+                titleToSearch.includes(q) ||
+                summaryToSearch.includes(q) ||
                 (post.tags || []).some(tag => tag.toLowerCase().includes(q));
             return matchesCategory && matchesSearch;
         });
-    }, [articles, search, activeCategory]);
+    }, [articles, search, activeCategory, blogPostsT]);
 
     return (
         <>
@@ -56,7 +64,7 @@ export default function BlogFilter({ articles }: BlogFilterProps) {
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
                             <input
                                 type="text"
-                                placeholder="Pesquisar artigos..."
+                                placeholder={page.searchPlaceholder}
                                 value={search}
                                 onChange={e => setSearch(e.target.value)}
                                 className="w-full pl-10 pr-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
@@ -74,7 +82,7 @@ export default function BlogFilter({ articles }: BlogFilterProps) {
                                             : 'bg-neutral-100 text-neutral-600 hover:bg-primary-light hover:text-primary'
                                     )}
                                 >
-                                    {cat}
+                                    {blogCategoriesT[cat] ?? cat}
                                 </button>
                             ))}
                         </div>
@@ -84,64 +92,72 @@ export default function BlogFilter({ articles }: BlogFilterProps) {
 
             <Container className="py-12 pb-24">
                 <p className="text-sm text-neutral-400 mb-8">
-                    Exibindo{' '}
+                    {page.showing}{' '}
                     <span className="font-semibold text-neutral-700">{filtered.length}</span>{' '}
-                    {filtered.length === 1 ? 'artigo' : 'artigos'}
+                    {filtered.length === 1 ? page.article : page.articles}
                 </p>
 
                 {filtered.length === 0 ? (
                     <div className="text-center py-20">
                         <p className="text-neutral-400 text-lg">
-                            Nenhum artigo encontrado para &quot;{search}&quot;
+                            {page.noResults} &quot;{search}&quot;
                         </p>
                         <button
                             onClick={() => { setSearch(''); setActiveCategory('Todos'); }}
                             className="mt-4 text-primary text-sm font-semibold hover:underline"
                         >
-                            Limpar filtros
+                            {page.clearFilters}
                         </button>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {filtered.map(post => (
-                            <article key={post.slug} className="flex flex-col h-full group">
-                                <div className="bg-neutral-100 h-56 rounded-2xl mb-6 overflow-hidden relative">
-                                    <Image
-                                        src={post.coverImage}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="flex items-center gap-3 text-xs font-semibold text-primary mb-3">
-                                    <span className="bg-primary-light px-2 py-1 rounded-full uppercase tracking-wide">
-                                        {post.category}
-                                    </span>
-                                </div>
-                                <h2 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary transition-colors leading-tight">
-                                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                </h2>
-                                <p className="text-neutral-600 mb-6 flex-grow">{post.summary}</p>
-                                <div className="flex items-center justify-between pt-6 border-t border-neutral-100 mt-auto">
-                                    <div className="flex items-center gap-3 text-sm text-neutral-500">
-                                        <span className="flex items-center gap-1">
-                                            <Calendar className="w-4 h-4" />
-                                            {post.publishedAtFormatted}
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <Clock className="w-4 h-4" />
-                                            {post.readingTime}
+                        {filtered.map(post => {
+                            const translated = blogPostsT[post.slug];
+                            const title = translated?.title ?? post.title;
+                            const summary = translated?.summary ?? post.summary;
+                            const category = translated?.category ?? post.category;
+                            const readingTime = translated?.readingTime ?? post.readingTime;
+
+                            return (
+                                <article key={post.slug} className="flex flex-col h-full group">
+                                    <div className="bg-neutral-100 h-56 rounded-2xl mb-6 overflow-hidden relative">
+                                        <Image
+                                            src={post.coverImage}
+                                            alt={title}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <div className="flex items-center gap-3 text-xs font-semibold text-primary mb-3">
+                                        <span className="bg-primary-light px-2 py-1 rounded-full uppercase tracking-wide">
+                                            {category}
                                         </span>
                                     </div>
-                                    <Link
-                                        href={`/blog/${post.slug}`}
-                                        className="text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all"
-                                    >
-                                        Ler artigo <ArrowRight className="w-4 h-4" />
-                                    </Link>
-                                </div>
-                            </article>
-                        ))}
+                                    <h2 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary transition-colors leading-tight">
+                                        <Link href={`/blog/${post.slug}`}>{title}</Link>
+                                    </h2>
+                                    <p className="text-neutral-600 mb-6 flex-grow">{summary}</p>
+                                    <div className="flex items-center justify-between pt-6 border-t border-neutral-100 mt-auto">
+                                        <div className="flex items-center gap-3 text-sm text-neutral-500">
+                                            <span className="flex items-center gap-1">
+                                                <Calendar className="w-4 h-4" />
+                                                {post.publishedAtFormatted}
+                                            </span>
+                                            <span className="flex items-center gap-1">
+                                                <Clock className="w-4 h-4" />
+                                                {readingTime}
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href={`/blog/${post.slug}`}
+                                            className="text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all"
+                                        >
+                                            {page.readArticle} <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </article>
+                            );
+                        })}
                     </div>
                 )}
             </Container>

@@ -33,7 +33,13 @@ export function BlogPreview() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-                    {previewPosts.map((post, index) => (
+                    {previewPosts.map((post, index) => {
+                        const translated = (t as any).blogPosts?.[post.slug];
+                        const title = translated?.title ?? post.title;
+                        const summary = translated?.summary ?? post.summary;
+                        const category = translated?.category ?? post.category;
+
+                        return (
                         <motion.article
                             key={post.slug}
                             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +51,7 @@ export function BlogPreview() {
                             <div className="relative h-48 w-full bg-neutral-200 overflow-hidden">
                                 <Image
                                     src={post.coverImage}
-                                    alt={post.title}
+                                    alt={title}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
@@ -54,18 +60,18 @@ export function BlogPreview() {
                             <div className="flex flex-col flex-grow p-6">
                                 <div className="flex items-center gap-3 text-xs font-semibold text-primary mb-3">
                                     <span className="bg-primary-light px-2 py-1 rounded-full uppercase tracking-wide">
-                                        {post.category}
+                                        {category}
                                     </span>
                                 </div>
 
                                 <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary transition-colors leading-tight">
                                     <Link href={`/blog/${post.slug}`}>
-                                        {post.title}
+                                        {title}
                                     </Link>
                                 </h3>
 
                                 <p className="text-neutral-600 text-sm mb-4 line-clamp-3 flex-grow">
-                                    {post.summary}
+                                    {summary}
                                 </p>
 
                                 <div className="pt-4 border-t border-neutral-100 flex items-center justify-between mt-auto">
@@ -79,7 +85,8 @@ export function BlogPreview() {
                                 </div>
                             </div>
                         </motion.article>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 <div className="text-center md:hidden">
