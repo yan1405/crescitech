@@ -27,6 +27,25 @@ const translations = {
             p1: "A Crescitech é uma consultoria estratégica especializada em transformação digital para Pequenas e Médias Empresas. Nossa missão é democratizar o acesso à Inteligência Artificial, tornando-a uma ferramenta real de crescimento sustentável.",
             p2: "Diferente de cursos genéricos ou consultorias distantes, somos parceiros estratégicos que mergulham na realidade de cada cliente.",
             cta: "Conheça Nossa Metodologia",
+            credentials: {
+                sectionTitle: "Credenciais e parcerias",
+                abria: {
+                    title: "Membro da ABRIA",
+                    subtitle: "Associação Brasileira de Inteligência Artificial",
+                    description: "A Crescitech integra o ecossistema brasileiro de IA como associada oficial da ABRIA, conectando-se a empresas, instituições de ensino e governo para impulsionar o desenvolvimento sustentável da inteligência artificial no Brasil.",
+                    link: "Veja nosso perfil na ABRIA →",
+                },
+                claude: {
+                    title: "Claude Partner Network",
+                    subtitle: "Programa oficial de parceiros Anthropic",
+                    description: "Participamos da rede global de parceiros da Anthropic, com acesso a treinamentos, certificações técnicas e recursos exclusivos para implementação de soluções de IA com Claude em ambientes empresariais.",
+                    link: "Saiba mais sobre o programa →",
+                },
+                hint: {
+                    expand: "Clique em um card para ver detalhes",
+                    collapse: "Clique novamente para recolher",
+                },
+            },
         },
         solutions: {
             title: "Nossas Soluções",
@@ -427,6 +446,25 @@ const translations = {
             p1: "Crescitech is a strategic consulting firm specialized in digital transformation for Small and Medium Enterprises. Our mission is to democratize access to Artificial Intelligence, making it a real tool for sustainable growth.",
             p2: "Unlike generic courses or distant consultancies, we are strategic partners who dive deep into the reality of each client.",
             cta: "Discover Our Methodology",
+            credentials: {
+                sectionTitle: "Credentials and partnerships",
+                abria: {
+                    title: "ABRIA member",
+                    subtitle: "Brazilian Artificial Intelligence Association",
+                    description: "Crescitech is part of the Brazilian AI ecosystem as an official ABRIA member, connecting with companies, educational institutions and government to drive sustainable AI development in Brazil.",
+                    link: "See our profile at ABRIA →",
+                },
+                claude: {
+                    title: "Claude Partner Network",
+                    subtitle: "Anthropic official partner program",
+                    description: "We are part of Anthropic's global partner network, with access to training, technical certifications and exclusive resources for implementing AI solutions with Claude in enterprise environments.",
+                    link: "Learn more about the program →",
+                },
+                hint: {
+                    expand: "Click a card to see details",
+                    collapse: "Click again to collapse",
+                },
+            },
         },
         solutions: {
             title: "Our Solutions",
@@ -827,6 +865,25 @@ const translations = {
             p1: "Crescitech est un cabinet de conseil stratégique spécialisé dans la transformation numérique pour les Petites et Moyennes Entreprises. Notre mission est de démocratiser l'accès à l'Intelligence Artificielle, en en faisant un véritable outil de croissance durable.",
             p2: "Contrairement aux cours génériques ou aux cabinets distants, nous sommes des partenaires stratégiques qui plongent dans la réalité de chaque client.",
             cta: "Découvrir Notre Méthodologie",
+            credentials: {
+                sectionTitle: "Accréditations et partenariats",
+                abria: {
+                    title: "Membre de l'ABRIA",
+                    subtitle: "Association Brésilienne d'Intelligence Artificielle",
+                    description: "Crescitech fait partie de l'écosystème brésilien de l'IA en tant que membre officiel de l'ABRIA, en se connectant avec des entreprises, des établissements d'enseignement et le gouvernement pour stimuler le développement durable de l'intelligence artificielle au Brésil.",
+                    link: "Voir notre profil à l'ABRIA →",
+                },
+                claude: {
+                    title: "Claude Partner Network",
+                    subtitle: "Programme officiel de partenaires Anthropic",
+                    description: "Nous faisons partie du réseau mondial de partenaires d'Anthropic, avec accès à des formations, des certifications techniques et des ressources exclusives pour la mise en œuvre de solutions d'IA avec Claude dans les environnements professionnels.",
+                    link: "En savoir plus sur le programme →",
+                },
+                hint: {
+                    expand: "Cliquez sur une carte pour voir les détails",
+                    collapse: "Cliquez à nouveau pour réduire",
+                },
+            },
         },
         solutions: {
             title: "Nos Solutions",

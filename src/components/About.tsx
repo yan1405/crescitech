@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { CredentialCards } from "@/components/CredentialCards";
 
 export function About() {
     const { t } = useLanguage();
@@ -36,6 +37,8 @@ export function About() {
                             {t.about.p2}
                         </p>
                     </motion.div>
+
+                    <CredentialCards />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
