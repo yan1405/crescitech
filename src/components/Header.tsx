@@ -13,10 +13,10 @@ import { useBooking } from "@/context/BookingContext";
 import { useLanguage } from "@/context/LanguageContext";
 import type { Lang } from "@/lib/translations";
 
-const LANG_OPTIONS: { code: Lang; flag: string; label: string }[] = [
-    { code: "pt", flag: "🇧🇷", label: "Português (Brasil)" },
-    { code: "en", flag: "🇺🇸", label: "English (United States)" },
-    { code: "fr", flag: "🇫🇷", label: "Français (France)" },
+const LANG_OPTIONS: { code: Lang; flagSrc: string; label: string }[] = [
+    { code: "pt", flagSrc: "/assets/flags/br.svg", label: "Portugu\u00eas (Brasil)" },
+    { code: "en", flagSrc: "/assets/flags/us.svg", label: "English (United States)" },
+    { code: "fr", flagSrc: "/assets/flags/fr.svg", label: "Fran\u00e7ais (France)" },
 ];
 
 export function Header() {
@@ -99,7 +99,7 @@ export function Header() {
                                     key={opt.code}
                                     onClick={() => setLang(opt.code)}
                                     className={cn(
-                                        "text-base leading-none px-2 py-1 rounded-md transition-all duration-200",
+                                        "flex items-center justify-center px-2 py-1.5 rounded-md transition-all duration-200",
                                         lang === opt.code
                                             ? "bg-primary text-white shadow-sm"
                                             : "text-neutral-500 hover:text-primary hover:bg-primary/5"
@@ -107,7 +107,14 @@ export function Header() {
                                     aria-label={`Alterar idioma para ${opt.label}`}
                                     title={opt.label}
                                 >
-                                    <span aria-hidden="true">{opt.flag}</span>
+                                    <Image
+                                        src={opt.flagSrc}
+                                        alt=""
+                                        width={24}
+                                        height={18}
+                                        className="h-[18px] w-6 rounded-[3px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.12)]"
+                                        aria-hidden="true"
+                                    />
                                 </button>
                             ))}
                         </div>

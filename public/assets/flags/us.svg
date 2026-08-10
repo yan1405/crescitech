@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 20">
+  <rect width="28" height="20" fill="#fff"/>
+  <path fill="#B22234" d="M0 0h28v1.54H0zm0 3.08h28v1.54H0zM0 6.15h28v1.54H0zm0 3.08h28v1.54H0zm0 3.08h28v1.54H0zm0 3.07h28v1.54H0zM0 18.46h28V20H0z"/>
+  <path fill="#3C3B6E" d="M0 0h12.9v10.77H0z"/>
+  <g fill="#fff">
+    <circle cx="2" cy="2" r=".55"/><circle cx="4.5" cy="2" r=".55"/><circle cx="7" cy="2" r=".55"/><circle cx="9.5" cy="2" r=".55"/>
+    <circle cx="3.25" cy="4.1" r=".55"/><circle cx="5.75" cy="4.1" r=".55"/><circle cx="8.25" cy="4.1" r=".55"/><circle cx="10.75" cy="4.1" r=".55"/>
+    <circle cx="2" cy="6.2" r=".55"/><circle cx="4.5" cy="6.2" r=".55"/><circle cx="7" cy="6.2" r=".55"/><circle cx="9.5" cy="6.2" r=".55"/>
+    <circle cx="3.25" cy="8.3" r=".55"/><circle cx="5.75" cy="8.3" r=".55"/><circle cx="8.25" cy="8.3" r=".55"/><circle cx="10.75" cy="8.3" r=".55"/>
+  </g>
+</svg>
