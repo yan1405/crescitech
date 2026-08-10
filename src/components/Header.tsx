@@ -13,10 +13,10 @@ import { useBooking } from "@/context/BookingContext";
 import { useLanguage } from "@/context/LanguageContext";
 import type { Lang } from "@/lib/translations";
 
-const LANG_OPTIONS: { code: Lang; label: string }[] = [
-    { code: "pt", label: "PT" },
-    { code: "en", label: "EN" },
-    { code: "fr", label: "FR" },
+const LANG_OPTIONS: { code: Lang; flag: string; label: string }[] = [
+    { code: "pt", flag: "🇧🇷", label: "Português (Brasil)" },
+    { code: "en", flag: "🇺🇸", label: "English (United States)" },
+    { code: "fr", flag: "🇫🇷", label: "Français (France)" },
 ];
 
 export function Header() {
@@ -99,14 +99,15 @@ export function Header() {
                                     key={opt.code}
                                     onClick={() => setLang(opt.code)}
                                     className={cn(
-                                        "text-xs font-semibold px-2 py-1 rounded-md transition-all duration-200",
+                                        "text-base leading-none px-2 py-1 rounded-md transition-all duration-200",
                                         lang === opt.code
                                             ? "bg-primary text-white shadow-sm"
                                             : "text-neutral-500 hover:text-primary hover:bg-primary/5"
                                     )}
-                                    aria-label={`Switch to ${opt.label}`}
+                                    aria-label={`Alterar idioma para ${opt.label}`}
+                                    title={opt.label}
                                 >
-                                    {opt.label}
+                                    <span aria-hidden="true">{opt.flag}</span>
                                 </button>
                             ))}
                         </div>
