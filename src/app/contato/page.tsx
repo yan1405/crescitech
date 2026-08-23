@@ -50,7 +50,7 @@ export default function ContatoPage() {
                             size="lg"
                             variant="outline"
                             className="w-full border-green-600 text-green-600 hover:bg-green-50"
-                            href="https://wa.me/5511965650546?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20em%20IA%20da%20Crescitech."
+                            href="https://wa.me/5511959963937?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20em%20IA%20da%20Crescitech."
                         >
                             {page.card2.cta}
                         </Button>

@@ -256,7 +256,7 @@ export default function PrivacidadePage() {
                                     <li>
                                         WhatsApp:{' '}
                                         <a
-                                            href="https://wa.me/5511965650546"
+                                            href="https://wa.me/5511959963937"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-primary hover:underline"

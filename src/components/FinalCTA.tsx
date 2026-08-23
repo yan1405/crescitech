@@ -30,7 +30,7 @@ export function FinalCTA() {
                         <Button size="lg" variant="white" onClick={openBookingModal} className="text-primary hover:bg-neutral-100">
                             {t.finalCta.cta1}
                         </Button>
-                        <Button size="lg" variant="outline" href="https://wa.me/5511965650546?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20em%20IA%20da%20Crescitech." className="border-white text-white hover:bg-white/10">
+                        <Button size="lg" variant="outline" href="https://wa.me/5511959963937?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20em%20IA%20da%20Crescitech." className="border-white text-white hover:bg-white/10">
                             {t.finalCta.cta2}
                         </Button>
                     </div>

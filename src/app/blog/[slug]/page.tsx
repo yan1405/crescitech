@@ -142,7 +142,7 @@ export default async function BlogPostPage({ params }: Props) {
                             Fale com a Crescitech e descubra como aplicar essas ideias no seu negócio.
                         </p>
                         <Button
-                            href={`https://wa.me/5511965650546?text=${encodeURIComponent('Olá! Li o artigo "' + post.title + '" no blog da Crescitech e gostaria de saber mais.')}`}
+                            href={`https://wa.me/5511959963937?text=${encodeURIComponent('Olá! Li o artigo "' + post.title + '" no blog da Crescitech e gostaria de saber mais.')}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

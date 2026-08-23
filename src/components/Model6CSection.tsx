@@ -37,7 +37,7 @@ export function Model6CSection() {
                             </div>
                         </div>
                         <Button
-                            href="https://wa.me/5511965650546?text=Olá,%20desejo%20falar%20com%20um%20especialista."
+                            href="https://wa.me/5511959963937?text=Olá,%20desejo%20falar%20com%20um%20especialista."
                             target="_blank"
                             rel="noopener noreferrer"
                         >

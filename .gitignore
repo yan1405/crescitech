@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# configs locais de ferramentas de IA (por maquina, nao versionar)
+.codex/
+.claude/settings.local.json
+.claude/settings.local-Desktop-Yan.json
+
+# pasta temporaria de itens marcados para exclusao manual
+_to_delete/

@@ -79,7 +79,7 @@ export default function SolutionsPage() {
                                     ))}
                                 </ul>
                                 <Button
-                                    href={`https://wa.me/5511965650546?text=Olá,%20estou%20interessado%20em%20saber%20mais%20sobre%20${encodeURIComponent(item.title)}.`}
+                                    href={`https://wa.me/5511959963937?text=Olá,%20estou%20interessado%20em%20saber%20mais%20sobre%20${encodeURIComponent(item.title)}.`}
                                     variant="outline"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -106,7 +106,7 @@ export default function SolutionsPage() {
                     </p>
                     <Button
                         size="lg"
-                        href="https://wa.me/5511965650546?text=Olá,%20gostaria%20de%20falar%20com%20um%20consultor."
+                        href="https://wa.me/5511959963937?text=Olá,%20gostaria%20de%20falar%20com%20um%20consultor."
                         target="_blank"
                         rel="noopener noreferrer"
                     >

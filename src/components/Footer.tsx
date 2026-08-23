@@ -51,7 +51,7 @@ export function Footer() {
                         <h4 className="font-semibold text-neutral-900 mb-4">{f.contactTitle}</h4>
                         <ul className="space-y-2 text-sm text-neutral-600">
                             <li><Link href="/contato" className="hover:text-primary transition-colors">{f.contact}</Link></li>
-                            <li><a href="https://wa.me/5511965650546" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{f.whatsapp}</a></li>
+                            <li><a href="https://wa.me/5511959963937" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{f.whatsapp}</a></li>
                             <li><a href="mailto:contato@crescitech.com.br" className="hover:text-primary transition-colors">{f.email}</a></li>
                         </ul>
                     </div>
