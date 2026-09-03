@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { blogPosts, publishedPosts } from '@/lib/blog/posts';
+import { publishedPosts } from '@/lib/blog/posts';
+import { getArticleBySlug } from '@/lib/blog/fetchArticles';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
@@ -19,38 +20,6 @@ export async function generateStaticParams() {
     return publishedPosts.map(post => ({ slug: post.slug }));
 }
 
-async function getArticle(slug: string) {
-    // Em build time no Netlify, usar apenas dados estáticos (evita timeout de 60s)
-    if (process.env.NETLIFY === 'true') {
-        console.log(`[blog/${slug}] Build no Netlify detectado, usando dados estáticos`);
-        return blogPosts.find(p => p.slug === slug) || null;
-    }
-
-    // Em runtime, tentar fetch com timeout de 10 segundos
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10_000);
-
-        const res = await fetch(
-            `${process.env.APPS_SCRIPT_URL}?mode=read&tab=artigos`,
-            { next: { revalidate: 300 }, redirect: 'follow', signal: controller.signal }
-        );
-
-        clearTimeout(timeoutId);
-
-        if (res.ok) {
-            const json = await res.json();
-            const rows = Array.isArray(json?.rows) ? json.rows : [];
-            const found = rows.find((a: Record<string, unknown>) => a.slug === slug && a.status === 'published');
-            if (found) return found;
-        }
-    } catch {
-        console.log(`[blog/${slug}] Fetch timeout ou erro, usando dados estáticos`);
-    }
-
-    return blogPosts.find(p => p.slug === slug) || null;
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
     // Para metadata usamos publishedPosts estático (build-time) como fallback rápido
@@ -64,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
-    const post = await getArticle(slug);
+    const post = await getArticleBySlug(slug);
     if (!post) notFound();
 
     return (
