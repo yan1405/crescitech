@@ -51,6 +51,7 @@ const translations = {
             title: "Nossas Soluções",
             subtitle: "Descubra como podemos acelerar seu negócio com inteligência artificial aplicada de forma estratégica.",
             cta: "Fale com um Consultor",
+            learnMore: "Saiba mais",
             items: [
                 {
                     title: "Diagnóstico Estratégico com IA",
@@ -470,6 +471,7 @@ const translations = {
             title: "Our Solutions",
             subtitle: "Discover how we can accelerate your business with strategically applied artificial intelligence.",
             cta: "Talk to a Consultant",
+            learnMore: "Learn more",
             items: [
                 {
                     title: "Strategic AI Diagnosis",
@@ -855,7 +857,7 @@ const translations = {
             headline1: "Transformez votre entreprise avec",
             headline2: "l'Intelligence Artificielle",
             headline3: "stratégique",
-            subheadline: "Conseil spécialisé en IA pour les entreprises qui souhaitent croître avec intelligence, efficacité et sens.",
+            subheadline: "Conseil spécialisé en IA pour les entreprises qui souhaitent se développer avec intelligence, efficacité et objectivité.",
             cta1: "Planifier un Échange",
             cta2: "Voir Nos Solutions",
             videoFallback: "Votre navigateur ne prend pas en charge les vidéos.",
@@ -869,14 +871,14 @@ const translations = {
                 sectionTitle: "Accréditations et partenariats",
                 abria: {
                     title: "Membre de l'ABRIA",
-                    subtitle: "Association Brésilienne d'Intelligence Artificielle",
-                    description: "Crescitech fait partie de l'écosystème brésilien de l'IA en tant que membre officiel de l'ABRIA, en se connectant avec des entreprises, des établissements d'enseignement et le gouvernement pour stimuler le développement durable de l'intelligence artificielle au Brésil.",
+                    subtitle: "Association brésilienne de l'intelligence artificielle",
+                    description: "Crescitech est membre officiel de l'ABRIA et fait partie de l'écosystème brésilien de l'IA. À ce titre, nous travaillons aux côtés d'entreprises, d'établissements d'enseignement et des pouvoirs publics pour favoriser l'essor d'une intelligence artificielle responsable au Brésil.",
                     link: "Voir notre profil à l'ABRIA →",
                 },
                 claude: {
                     title: "Claude Partner Network",
                     subtitle: "Programme officiel de partenaires Anthropic",
-                    description: "Nous faisons partie du réseau mondial de partenaires d'Anthropic, avec accès à des formations, des certifications techniques et des ressources exclusives pour la mise en œuvre de solutions d'IA avec Claude dans les environnements professionnels.",
+                    description: "Nous faisons partie du réseau mondial de partenaires d'Anthropic. Ce statut nous donne accès à des formations, des certifications techniques et des ressources exclusives pour déployer des solutions d'IA avec Claude en entreprise.",
                     link: "En savoir plus sur le programme →",
                 },
                 hint: {
@@ -889,6 +891,7 @@ const translations = {
             title: "Nos Solutions",
             subtitle: "Découvrez comment nous pouvons accélérer votre entreprise grâce à l'intelligence artificielle appliquée de façon stratégique.",
             cta: "Parler à un Consultant",
+            learnMore: "En savoir plus",
             items: [
                 {
                     title: "Diagnostic Stratégique IA",
@@ -1030,7 +1033,7 @@ const translations = {
                     description: "Préparez votre équipe à l'ère de l'intelligence artificielle. Nos formations sont pratiques, axées sur le quotidien et adaptées à différents niveaux de connaissances techniques.",
                     features: [
                         "Ateliers pratiques (mains dans la masse)",
-                        "Littératie IA pour les non-techniques",
+                        "Alphabétisation IA pour les non-techniques",
                         "Formation sur des outils spécifiques",
                         "Développement d'une culture data-driven",
                     ],
@@ -1113,7 +1116,7 @@ const translations = {
                 },
                 {
                     title: "Capacitation",
-                    description: "La technologie sans personnes préparées est un gaspillage. Nous investissons dans la littératie numérique des équipes et des dirigeants, créant une culture qui embrasse l'innovation plutôt que de la craindre.",
+                    description: "La technologie sans personnes préparées est un gaspillage. Nous investissons dans l'alphabétisation numérique des équipes et des dirigeants, créant une culture qui embrasse l'innovation plutôt que de la craindre.",
                     benefits: ["Ateliers pratiques", "Changement de mentalité", "Préparation au changement"],
                 },
                 {

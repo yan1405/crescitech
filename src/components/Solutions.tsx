@@ -75,6 +75,7 @@ export function Solutions() {
                             href={solutionHrefs[index]}
                             lottieUrl={solutionLotties[index]}
                             imageAlt={solutionAlts[index]}
+                            learnMoreLabel={t.solutions.learnMore}
                             delay={index * 0.1}
                         />
                     ))}

@@ -26,9 +26,10 @@ interface SolutionCardProps {
     imageUrl?: string;
     imageAlt?: string;
     lottieUrl?: string;
+    learnMoreLabel?: string;
 }
 
-export function SolutionCard({ icon, title, description, href, delay = 0, imageUrl, imageAlt, lottieUrl }: SolutionCardProps) {
+export function SolutionCard({ icon, title, description, href, delay = 0, imageUrl, imageAlt, lottieUrl, learnMoreLabel = "Saiba mais" }: SolutionCardProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,14 +87,14 @@ export function SolutionCard({ icon, title, description, href, delay = 0, imageU
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                 >
-                    Saiba mais <ArrowRight className="ml-2 w-4 h-4" />
+                    {learnMoreLabel} <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
             ) : (
                 <Link
                     href={href}
                     className="inline-flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                 >
-                    Saiba mais <ArrowRight className="ml-2 w-4 h-4" />
+                    {learnMoreLabel} <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
             )}
         </motion.div>
